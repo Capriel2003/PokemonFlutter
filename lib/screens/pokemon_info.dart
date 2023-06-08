@@ -43,16 +43,56 @@ class PokemonInfo extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Expanded(child:Container(
-              color: atributosCor("${pokemon?.type}"),
-              child: SizedBox(
-                child: SvgPicture.network(
-                  '${pokemon?.image}',
-                  fit: BoxFit.scaleDown,
+            SizedBox(
+              width: MediaQuery.of(context).size.width,
+              child: Card(
+                shape: const RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(16)),
+                  side: BorderSide(
+                    color: Colors.black,
+                    width: 4.0,
+                  ),
                 ),
-                width: MediaQuery.of(context).size.width - 100,
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        "#${pokemon?.id}",
+                        style: const TextStyle(
+                          fontSize: 24.0,
+                          color: Colors.amber,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(10),
+                      child: Text(
+                        "#${pokemon?.name}",
+                        style: const TextStyle(
+                          fontSize: 54.0,
+                          color: Colors.black,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
-            ),),
+            ),
+            Expanded(
+              child: Container(
+                color: atributosCor("${pokemon?.type}"),
+                child: SizedBox(
+                  child: SvgPicture.network(
+                    '${pokemon?.image}',
+                    fit: BoxFit.scaleDown,
+                  ),
+                  width: MediaQuery.of(context).size.width - 100,
+                ),
+              ),
+            ),
             SizedBox(
               width: MediaQuery.of(context).size.width,
               child: Card(
@@ -66,46 +106,57 @@ class PokemonInfo extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      "#${pokemon?.id}",
-                      style: const TextStyle(
-                        fontSize: 24.0,
-                        color: Colors.amber,
-                        fontWeight: FontWeight.bold,
+                    Center(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(16),
+                            child: Text(
+                              "${pokemon?.type}",
+                              style: const TextStyle(
+                                fontSize: 24.0,
+                                color: Colors.black,
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
-                    Text(
-                      "#${pokemon?.name}",
-                      style: const TextStyle(
-                        fontSize: 64.0,
-                        color: Colors.black,
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        "hp: ${pokemon?.hp}",
+                        style: const TextStyle(
+                          fontSize: 24.0,
+                          color: Colors.black,
+                        ),
                       ),
                     ),
-                    Text(
-                      "hp: ${pokemon?.hp}",
-                      style: const TextStyle(
-                        fontSize: 24.0,
-                        color: Colors.black,
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        "attack: ${pokemon?.attack}",
+                        style: const TextStyle(
+                          fontSize: 24.0,
+                          color: Colors.black,
+                        ),
                       ),
                     ),
-                    Text(
-                      "attack: ${pokemon?.attack}",
-                      style: const TextStyle(
-                        fontSize: 24.0,
-                        color: Colors.black,
-                      ),
-                    ),
-                    Text(
-                      "defense: ${pokemon?.defense}",
-                      style: const TextStyle(
-                        fontSize: 24.0,
-                        color: Colors.black,
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        "defense: ${pokemon?.defense}",
+                        style: const TextStyle(
+                          fontSize: 24.0,
+                          color: Colors.black,
+                        ),
                       ),
                     ),
                   ],
                 ),
               ),
-            )
+            ),
           ],
         ),
       ],

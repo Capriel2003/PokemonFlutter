@@ -11,8 +11,8 @@ class LiteDex extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.yellow,
       ),
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
-
         appBar: AppBar(
           title: const Text("Pokedex Lite"),
         ),
